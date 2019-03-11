@@ -1,6 +1,6 @@
 e = []
 ma = 3
-m 0 0
+m = 0
 const art = require("ascii-art")
 var getObj = function(a, k, v) {
 	for (i = 0; i < a.length; i++){
