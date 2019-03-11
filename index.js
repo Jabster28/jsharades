@@ -1,6 +1,6 @@
 const art = require("ascii-art")
-const ran = require("random-words")
-var r = require("randray")
+const ran = require("randray")
+var r = require("readline")
 pc = 0
 o = {}
 end = false
