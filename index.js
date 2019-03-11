@@ -71,10 +71,10 @@ rl = r.createInterface({
 rl.question("Welcome to Charades! Please tell me your player's names, seperated by commas:\n", function (a) {
 	p = a.split(",")
 	for (i = 0; i < p.length; i++) {
-		o.push {
-			points: 0
+		o.push({
+			points: 0,
 			name: p[pc]
-		}
+		})
 	}
 
 	console.log("So you have " + p.length + " people, good. The order will be:\n" + p + "\nLets Play!\n")
