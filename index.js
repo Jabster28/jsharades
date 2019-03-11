@@ -1,11 +1,18 @@
+e = []
+ma = 3
 const art = require("ascii-art")
+var getObj = function(a, k, v) {
+	for (i = 0; i < a.length; i++){
+		if ((a[i])[k] == v) return a[i]
+	}
+}
 var {
 	Timer
 } = require("easytimer.js")
 const ran = require("randray")
 var r = require("readline")
 pc = 0
-o = {}
+o = []
 end = false
 s = ['tissue box',
 	'button',
@@ -64,8 +71,9 @@ rl = r.createInterface({
 rl.question("Welcome to Charades! Please tell me your player's names, seperated by commas:\n", function (a) {
 	p = a.split(",")
 	for (i = 0; i < p.length; i++) {
-		o[p[i]] = {
+		o.push {
 			points: 0
+			name: p[pc]
 		}
 	}
 
@@ -90,7 +98,7 @@ rl.question("Welcome to Charades! Please tell me your player's names, seperated 
 			q = function () {
 				art.font(ran(s), "Doom", function (rendered) {
 					rl.question(rendered, function (a) {
-						o[p[pc]].points++
+						getObj(o, "name", p[pc]).points++
 						if (end) {w()} else {q()}
 					})
 				});
@@ -98,11 +106,25 @@ rl.question("Welcome to Charades! Please tell me your player's names, seperated 
 			q()
 
 			w = function () {
-				pc++
-				if (pc > p.length - 1) pc = 0
-				console.log("Nice! " + p[pc] + " got " + o[p[pc]].points)
+				console.log("Nice! " + p[pc] + " got " + getObj(o, "name", p[pc]).points)
 				console.log("\nNext person!\n\n")
-				x()
+				pc++
+				if (pc > p.length - 1) {
+					pc = 0
+					m++
+				}
+				if (ma == m) {
+					for (i=0;i<o.length;i++) {
+						e.push(o[i].points)
+						e.sort(function(a, b){return b-a})
+						art.font(ran(s), getObj(o, "points", e[0]).name + " wins!", function (rendered) {
+							console.log(rendered)
+						}
+					}
+				} else {
+					x()
+				}
+				
 			}
 		})
 	}
