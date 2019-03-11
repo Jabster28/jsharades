@@ -98,6 +98,7 @@ rl.question("Welcome to Charades! Please tell me your player's names, seperated 
 			q()
 
 			w = function () {
+				pc++
 				if (pc > p.length - 1) pc = 0
 				console.log("Nice! " + p[pc] + " got " + o[p[pc]].points)
 				console.log("\nNext person!\n\n")
