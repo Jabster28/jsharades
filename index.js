@@ -1,5 +1,5 @@
 const art = require("ascii-art")
-var { Timer } = require("easytimer")
+var { Timer } = require("easytimer.js")
 const ran = require("randray")
 var r = require("readline")
 pc = 0
