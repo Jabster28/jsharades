@@ -91,7 +91,7 @@ rl.question("Welcome to Charades! Please tell me your player's names, seperated 
 				art.font(ran(s), "Doom", function (rendered) {
 					rl.question(rendered, function (a) {
 						o[p[pc]].points++
-						if (end) w()
+						if (end) {w()} else {q()}
 					})
 				});
 			}
