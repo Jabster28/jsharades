@@ -119,7 +119,7 @@ rl.question("Welcome to Charades! Please tell me your player's names, seperated 
 						e.sort(function(a, b){return b-a})
 						art.font(ran(s), getObj(o, "points", e[0]).name + " wins!", function (rendered) {
 							console.log(rendered)
-						}
+						})
 					}
 				} else {
 					x()
